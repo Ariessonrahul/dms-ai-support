@@ -1,1 +1,51 @@
-
+[
+  {
+    "id": 1,
+    "error": "Unknown Return Error (1110)",
+    "keywords": ["1110", "Unknown Return", "SVRC_NOT_REEF"],
+    "solution": [
+      "Chrome update check kare",
+      "Proton VPN ON kare (Jio SIM users)",
+      "Force Stop kare",
+      "Clear Cache kare (Clear Data nahi)",
+      "Mobile restart kare",
+      "Agar issue rahe to DMS Team se contact kare"
+    ]
+  },
+  {
+    "id": 2,
+    "error": "Dashboard Loading Issue",
+    "keywords": ["Dashboard", "Home Screen"],
+    "solution": [
+      "Internet check kare",
+      "App dobara open kare",
+      "Background apps band kare",
+      "Mobile restart kare"
+    ]
+  },
+  {
+    "id": 3,
+    "error": "Preparing the App (9033)",
+    "keywords": ["9033", "Preparing app"],
+    "solution": [
+      "Chrome update kare",
+      "Proton VPN ON kare",
+      "Force Stop kare",
+      "Clear Cache kare",
+      "Mobile restart kare",
+      "Dobara login kare"
+    ]
+  },
+  {
+    "id": 4,
+    "error": "White Screen",
+    "keywords": ["White Screen", "Blank Screen"],
+    "solution": [
+      "Chrome update kare",
+      "Storage check kare",
+      "Clear Cache kare",
+      "Mobile restart kare",
+      "Agar issue rahe to DMS Team se contact kare"
+    ]
+  }
+]
