@@ -172,3 +172,53 @@ else:
     st.write("• AI Screenshot Matching")
     st.write("• PDF Download")
     st.write("• Admin Panel")
+# ---------------- EXTRA DASHBOARD ----------------
+ 
+if page == "🏠 Home":
+ 
+    st.divider()
+    st.subheader("📊 Dashboard Overview")
+ 
+    col1, col2 = st.columns(2)
+ 
+    with col1:
+        st.info(f"📌 Total Supported Issues : {len(issues)}")
+        st.success("🟢 System Status : Online")
+ 
+    with col2:
+        st.warning("📷 OCR Status : Coming Soon")
+        st.info("🤖 AI Engine : Ready")
+ 
+    st.divider()
+ 
+    st.subheader("🚀 Quick Actions")
+ 
+    a1, a2, a3 = st.columns(3)
+ 
+    with a1:
+        if st.button("🔍 Search Issue"):
+            st.info("Open the 'Search Issue' menu from the sidebar.")
+ 
+    with a2:
+        if st.button("📷 Upload Screenshot"):
+            st.info("Open the 'Upload Screenshot' menu from the sidebar.")
+ 
+    with a3:
+        if st.button("📚 View All Issues"):
+            st.info("Open the 'All Issues' menu from the sidebar.")
+ 
+    st.divider()
+ 
+    st.subheader("📞 Need Help?")
+ 
+    st.success(
+        """
+        If your issue is not listed:
+ 
+        ✅ Contact DMS Support Team
+ 
+        📧 Email: dms.support@company.com
+ 
+        ☎️ Extension: XXXX
+        """
+    )
