@@ -2,128 +2,151 @@ import streamlit as st
 import json
 from PIL import Image
  
-# ------------------------
-# PAGE CONFIG
-# ------------------------
+# ---------------- PAGE ----------------
 st.set_page_config(
     page_title="RSPL DMS AI Assistant",
     page_icon="🤖",
     layout="wide"
 )
  
-# ------------------------
-# LOAD ISSUES
-# ------------------------
-def load_issues():
+# ---------------- CSS ----------------
+st.markdown("""
+<style>
+.main-title{
+    text-align:center;
+    font-size:42px;
+    color:#6A1B9A;
+    font-weight:bold;
+}
+.sub-title{
+    text-align:center;
+    font-size:20px;
+    color:#555;
+}
+.card{
+    background:#f5f5f5;
+    padding:15px;
+    border-radius:12px;
+    margin-bottom:10px;
+}
+</style>
+""", unsafe_allow_html=True)
+ 
+# ---------------- LOAD JSON ----------------
+@st.cache_data
+def load_data():
     try:
-        with open("issues.json", "r", encoding="utf-8") as file:
-            return json.load(file)
+        with open("issues.json","r",encoding="utf-8") as f:
+            return json.load(f)
     except:
         return []
  
-issues = load_issues()
+issues = load_data()
  
-# ------------------------
-# HEADER
-# ------------------------
-st.markdown("""
-# 🤖 RSPL DMS AI Assistant
-### Upload Screenshot → Get Instant Solution
----
-""")
+# ---------------- HEADER ----------------
+st.markdown('<div class="main-title">🤖 RSPL DMS AI Assistant</div>', unsafe_allow_html=True)
+st.markdown('<div class="sub-title">Upload Screenshot → Get Instant Solution</div>', unsafe_allow_html=True)
  
-# ------------------------
-# SIDEBAR
-# ------------------------
-st.sidebar.title("📌 Menu")
+st.divider()
  
-page = st.sidebar.radio(
-    "Select",
+# ---------------- SIDEBAR ----------------
+page = st.sidebar.selectbox(
+    "📌 Menu",
     [
         "🏠 Home",
         "🔍 Search Issue",
         "📷 Upload Screenshot",
-        "ℹ️ About"
+        "📚 All Issues",
+        "ℹ About"
     ]
 )
  
-# ------------------------
-# HOME
-# ------------------------
-if page == "🏠 Home":
+# ---------------- HOME ----------------
+if page=="🏠 Home":
  
     st.success("Welcome to RSPL DMS AI Assistant")
  
-    st.info("Supported Issues")
+    c1,c2,c3=st.columns(3)
  
-    col1, col2 = st.columns(2)
+    c1.metric("Supported Issues",len(issues))
+    c2.metric("Version","1.0")
+    c3.metric("Status","Online")
  
-    with col1:
-        st.write("✅ Employee ID Missing")
-        st.write("✅ Preparing App")
-        st.write("✅ Internet Error")
-        st.write("✅ Payment Status None")
+    st.divider()
  
-    with col2:
-        st.write("✅ Portal Error")
-        st.write("✅ No BP Showing")
-        st.write("✅ Loading Issue")
-        st.write("✅ Synchronization")
+    st.subheader("Supported Error Types")
  
-# ------------------------
-# SEARCH
-# ------------------------
-elif page == "🔍 Search Issue":
+    for item in issues:
+        st.write("✅",item["error"])
  
-    search = st.text_input("Enter Error")
+# ---------------- SEARCH ----------------
+elif page=="🔍 Search Issue":
+ 
+    search=st.text_input("Search by Error Code / Name / Keyword")
  
     if search:
  
-        found = False
+        found=False
  
-        for issue in issues:
+        for item in issues:
  
-            if search.lower() in issue["title"].lower():
+            keywords=" ".join(item.get("keywords",[]))
  
-                found = True
+            if (
+                search.lower() in item["error"].lower()
+                or search.lower() in keywords.lower()
+            ):
  
-                st.success(issue["title"])
+                found=True
  
-                st.subheader("Solution")
+                st.success(item["error"])
  
-                for step in issue["solution"]:
-                    st.write("✅", step)
+                st.write("### Solution")
+ 
+                for step in item["solution"]:
+                    st.write("✔",step)
  
         if not found:
-            st.error("No Matching Issue Found")
+            st.error("No matching issue found.")
  
-# ------------------------
-# UPLOAD
-# ------------------------
-elif page == "📷 Upload Screenshot":
+# ---------------- UPLOAD ----------------
+elif page=="📷 Upload Screenshot":
  
-    image = st.file_uploader(
+    img=st.file_uploader(
         "Upload Screenshot",
         type=["png","jpg","jpeg"]
     )
  
-    if image:
+    if img:
  
-        img = Image.open(image)
+        image=Image.open(img)
  
-        st.image(img, use_container_width=True)
+        st.image(image,use_container_width=True)
  
-        st.info("OCR + AI Detection coming in next version")
+        st.info("OCR + AI Detection will be added in Part 2")
  
-# ------------------------
-# ABOUT
-# ------------------------
+# ---------------- ALL ISSUES ----------------
+elif page=="📚 All Issues":
+ 
+    for item in issues:
+ 
+        with st.expander(item["error"]):
+ 
+            for s in item["solution"]:
+                st.write("✔",s)
+ 
+# ---------------- ABOUT ----------------
 else:
  
-    st.title("About")
+    st.header("About")
  
     st.write("RSPL DMS AI Assistant")
  
-    st.write("Version 1.0")
- 
     st.write("Developed for DMS Support Team")
+ 
+    st.write("Future Features")
+ 
+    st.write("• OCR Detection")
+    st.write("• AI Matching")
+    st.write("• Auto Screenshot Analysis")
+    st.write("• PDF Export")
