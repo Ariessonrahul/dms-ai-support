@@ -127,5 +127,3 @@ else:
     st.write("Version 1.0")
  
     st.write("Developed for DMS Support Team")
-has context menu
-
