@@ -29,4 +29,3 @@ st.button("Preparing App")
 st.button("Internet Error")
 st.button("Synchronization Issue")
 st.button("Payment Status None")
-has context menu
