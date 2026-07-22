@@ -77,7 +77,7 @@ if page=="🏠 Home":
     st.subheader("Supported Error Types")
  
     for item in issues:
-        st.write("✅",item["error"])
+        st.write("✅",item["error",item.get("title","unknown error")))
  
 # ---------------- SEARCH ----------------
 elif page=="🔍 Search Issue":
