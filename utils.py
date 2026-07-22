@@ -70,5 +70,4 @@ def get_statistics(issues):
         "total_issues": len(issues),
         "total_keywords": sum(len(i.get("keywords", [])) for i in issues),
     }
-has context menu
 
