@@ -1,1 +1,38 @@
-
+[
+  {
+    "id": 1,
+    "title": "Employee ID/Data Missing",
+    "keywords": ["employee id", "data missing", "blank"],
+    "solution": [
+      "Update Chrome Browser",
+      "If using Jio SIM, connect Proton VPN",
+      "Restart Mobile",
+      "Enable Auto Date & Time",
+      "Use stable internet",
+      "Contact DMS Support Team if issue persists"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Only Bottom Icons Showing",
+    "keywords": ["bottom icons", "blank screen"],
+    "solution": [
+      "Update Chrome Browser",
+      "Connect Proton VPN (Jio users)",
+      "Restart Mobile",
+      "Enable Auto Date & Time",
+      "Contact DMS Support Team"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Preparing App",
+    "keywords": ["preparing app", "loading"],
+    "solution": [
+      "Update Chrome",
+      "Restart Mobile",
+      "Connect VPN",
+      "Enable Auto Date & Time"
+    ]
+  }
+]
