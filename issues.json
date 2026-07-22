@@ -1,38 +1,22 @@
 [
   {
     "id": 1,
-    "title": "Employee ID/Data Missing",
-    "keywords": ["employee id", "data missing", "blank"],
+    "error": "Unknown Return Error (1110)",
+    "keywords": ["1110", "Unknown Return", "SVRC_NOT_REEEF"],
     "solution": [
-      "Update Chrome Browser",
-      "If using Jio SIM, connect Proton VPN",
-      "Restart Mobile",
-      "Enable Auto Date & Time",
-      "Use stable internet",
-      "Contact DMS Support Team if issue persists"
+      "Chrome Browser update kare",
+      "Jio SIM users Proton VPN connect kare",
+      "Force Stop kare",
+      "Clear Cache kare (Clear Data nahi)",
+      "Mobile Restart kare",
+      "Issue rahe to DMS Team se contact kare"
     ]
   },
   {
     "id": 2,
-    "title": "Only Bottom Icons Showing",
-    "keywords": ["bottom icons", "blank screen"],
+    "error": "Only Bottom Icons Showing",
+    "keywords": ["bottom icons", "blank screen", "dashboard blank"],
     "solution": [
-      "Update Chrome Browser",
-      "Connect Proton VPN (Jio users)",
-      "Restart Mobile",
-      "Enable Auto Date & Time",
-      "Contact DMS Support Team"
-    ]
-  },
-  {
-    "id": 3,
-    "title": "Preparing App",
-    "keywords": ["preparing app", "loading"],
-    "solution": [
-      "Update Chrome",
-      "Restart Mobile",
-      "Connect VPN",
-      "Enable Auto Date & Time"
-    ]
-  }
-]
+      "Chrome Browser update kare",
+      "Jio SIM users Proton VPN connect kare",
+      "Restart
