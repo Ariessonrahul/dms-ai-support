@@ -94,3 +94,81 @@ if page=="🏠 Home":
  
     for item in issues:
         st.write("✅", item.get("error","Unknown Error"))
+     # ---------------- SEARCH ----------------
+ 
+elif page=="🔍 Search Issue":
+ 
+    search = st.text_input("🔍 Search Error Code / Name / Keyword")
+ 
+    if search:
+ 
+        found = False
+ 
+        for item in issues:
+ 
+            keywords = " ".join(item.get("keywords", []))
+ 
+            if (
+                search.lower() in item.get("error", "").lower()
+                or search.lower() in keywords.lower()
+            ):
+ 
+                found = True
+ 
+                st.success("✅ " + item.get("error", "Unknown Error"))
+ 
+                st.subheader("Solution")
+ 
+                for step in item.get("solution", []):
+                    st.write("✔", step)
+ 
+        if not found:
+            st.error("❌ No matching issue found")
+ 
+# ---------------- SCREENSHOT ----------------
+ 
+elif page=="📷 Upload Screenshot":
+ 
+    uploaded = st.file_uploader(
+        "Upload Screenshot",
+        type=["png","jpg","jpeg"]
+    )
+ 
+    if uploaded:
+ 
+        image = Image.open(uploaded)
+ 
+        st.image(image, use_container_width=True)
+ 
+        st.info("🤖 AI Detection module coming in next update.")
+ 
+# ---------------- ALL ISSUES ----------------
+ 
+elif page=="📚 All Issues":
+ 
+    for item in issues:
+ 
+        with st.expander(item.get("error","Unknown Error")):
+ 
+            for step in item.get("solution",[]):
+ 
+                st.write("✔",step)
+ 
+# ---------------- ABOUT ----------------
+ 
+else:
+ 
+    st.header("About")
+ 
+    st.write("RSPL DMS AI Assistant")
+ 
+    st.write("Version 2.0")
+ 
+    st.write("Developed by Rahul Maurya ❤️")
+ 
+    st.write("Upcoming Features")
+ 
+    st.write("• OCR Detection")
+    st.write("• AI Screenshot Matching")
+    st.write("• PDF Download")
+    st.write("• Admin Panel")
