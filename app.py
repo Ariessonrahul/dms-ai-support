@@ -112,7 +112,7 @@ if page == "🏠 Home":
         st.info("🔍 Search any DMS issue")
  
     with c2:
-        st.info("📷 Upload screenshot for
+        st.info("📷 Upload screenshot for AI detection")
  
 # =========================
 # SEARCH PAGE
