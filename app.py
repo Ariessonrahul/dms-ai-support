@@ -149,7 +149,7 @@ elif page == "🔍 Search":
                     st.write("### Recommended Solution")
  
                     for step in item.get("solution", []):
-                        st.write(f"
+                        st.write(f"✅ {step}")
  
 # =========================
 # SCREENSHOT OCR
